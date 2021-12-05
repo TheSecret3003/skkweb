@@ -9,7 +9,6 @@ from . import getdata
 import joblib
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 
 scale = joblib.load("processdata/scaler.save")
 model_pca = joblib.load("processdata/pca.save")
