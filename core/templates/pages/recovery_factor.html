@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <title>Estimation of Recovery Factor</title>
+</head>
+
+<body
+    class="
+        flex flex-col
+        justify-between
+        item-center
+        p-8
+        min-h-screen
+        bg-gradient-to-r
+        from-green-400
+        to-blue-500
+        text-gray-800
+        md:flex-row
+    "
+>
+<main class="bg-white p-16 rounded-lg">
+    <h1 class="text-3xl font-bold mb-8">
+        Prediction of Recovery Factor:
+    </h1>
+
+    <form
+        class="flex flex-col"
+    >
+    {% csrf_token %}
+        <label for="FIELD_PORO_AVG" class="mb-2">FIELD_PORO_AVG</label>
+        <input
+            type="text"
+            name="FIELD_PORO_AVG"
+            placeholder="FIELD_PORO_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F1}}
+        >
+
+        <label for="FIELD_PERM_AVG" class="mb-2">FIELD_PERM_AVG</label>
+        <input
+            type="text"
+            name="FIELD_PERM_AVG"
+            placeholder="FIELD_PERM_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F2}}
+        >
+
+        <label for="FIELD_SWC_AVG" class="mb-2">FIELD_SWC_AVG</label>
+        <input
+            type="text"
+            name="FIELD_SWC_AVG"
+            placeholder="FIELD_SWC_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F3}}
+        >
+        <label for="FIELD_PRESS_INIT_AVG" class="mb-2">FIELD_PRESS_INIT_AVG</label>
+        <input
+            type="text"
+            name="FIELD_PRESS_INIT_AVG"
+            placeholder="FIELD_PRESS_INIT_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F4}}
+        >
+        <label for="FIELD_FVFOIL_AVG" class="mb-2">FIELD_FVFOIL_AVG</label>
+        <input
+            type="text"
+            name="FIELD_FVFOIL_AVG"
+            placeholder="FIELD_FVFOIL_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F5}}
+        >
+        <label for="FIELD_OILVISC_AVG" class="mb-2">FIELD_OILVISC_AVG</label>
+        <input
+            type="text"
+            name="FIELD_OILVISC_AVG"
+            placeholder="FIELD_OILVISC_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F6}}
+        >
+        <label for="FIELD_WATVISC_AVG" class="mb-2">FIELD_WATVISC_AVG</label>
+        <input
+            type="text"
+            name="FIELD_WATVISC_AVG"
+            placeholder="FIELD_WATVISC_AVG"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F7}}
+        >
+
+        <button
+            type="submit"
+            class="
+                flex
+                justify-center
+                align-center
+                mt-8
+                p-4
+                bg-gradient-to-r
+                from-green-400
+                to-blue-500
+                text-white
+                rounded-md
+            "
+        >
+            PREDICT
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-arrow-right ml-4"
+            >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </button>
+    </form>
+</main>
+<section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+    <div class="bg-white p-16 rounded-lg">
+        <h1 class="text-2xl mb-8">
+            Recovery Factor Estimation:
+        </h1>
+        <h2 class="text-5xl font-bold">{{ result }}</h2>
+        <div class="mt-8">
+            <p>Cluster: {{ cluster }}</p>
+        </div>
+    </div>
+    <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+        
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+        href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+        rel="stylesheet"
+    />
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
+    <title>Production Profile</title>
+</head>
+
+<body
+    class="
+        flex flex-col
+        justify-between
+        item-center
+        p-8
+        min-h-screen
+        bg-gradient-to-r
+        from-green-400
+        to-blue-500
+        text-gray-800
+        md:flex-row
+    "
+>
+<main class="bg-white p-12 rounded-lg" padd>
+    <h1 class="text-3xl font-bold mb-8">
+        Profil Production:
+    </h1>
+
+    <form
+        class="flex flex-col"
+    >
+    {% csrf_token %}
+        <label for="FIELD_NAME" class="mb-2">FIELD_NAME</label>
+        <input
+            type="text"
+            id="FIELD_NAME"
+            placeholder="FIELD_NAME"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F1}}
+        >
+
+        <label for="FIELD_IOIP" class="mb-2">FIELD_IOIP</label>
+        <input
+            type="text"
+            id="FIELD_IOIP"
+            placeholder="FIELD_IOIP"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F2}}
+        >
+
+        <label for="RECOVERY_FACTOR" class="mb-2">RECOVERY_FACTOR</label>
+        <input
+            type="text"
+            id="RECOVERY_FACTOR"
+            placeholder="RECOVERY_FACTOR"
+            required="required"
+            class="p-4 bg-gray-100 rounded-md"
+            value =  {{F3}}
+        >
+        <button
+            id = "submit"
+            class="
+                flex
+                justify-center
+                align-center
+                mt-8
+                p-4
+                bg-gradient-to-r
+                from-green-400
+                to-blue-500
+                text-white
+                rounded-md
+            "
+        >
+            PREDICT
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-arrow-right ml-4"
+            >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </button>
+    </form>
+</main>
+<section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-6">
+    <div class="bg-white p-32 rounded-lg">
+        <div id="profile_chart" style="height: 310px;"></div>
+    </div>
+</section>
+
+
+<script src="/static/assets/js/fetch-data.js"></script>
+</body>
+</html>
