@@ -18,3 +18,5 @@ Unipath
 whitenoise
 scikit-learn
 joblib
+openpyxl
+scikit-learn==0.23.2
