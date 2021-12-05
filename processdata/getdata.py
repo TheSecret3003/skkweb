@@ -4,9 +4,6 @@ import csv
 import joblib
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.graph_objs as go
-from plotly.offline import plot
 
 # model_scaler = joblib.load("scalerprofileproduction.save")
 # model_gmfileprod = joblib.load("gmprofileproduction.save")
