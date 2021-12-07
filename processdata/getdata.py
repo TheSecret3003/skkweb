@@ -197,9 +197,6 @@ def plot_prod(tpeak, qexp, fieldname,qcumpeak,qcummax,b,di):
 
             
     x_forecast, y_forecast=forecast(max(y),b,di,nmon,qcumpeak,qcummax)
-    # fig = go.Figure(layout_title_text=fieldname)
-    # fig.add_trace(go.Scatter(x=x,y=y,mode="lines",line=go.scatter.Line(color="dimgrey"),showlegend=False))
-    # fig.add_trace(go.Scatter(x=x_forecast,y=y_forecast,mode="lines",line=go.scatter.Line(color="dimgrey"),showlegend=False))
     # plt.figure(figsize=(16,8))
     # plt.plot(x,y)
     # plt.fill_between(np.array(x),np.array(y), color='r')
@@ -211,28 +208,10 @@ def plot_prod(tpeak, qexp, fieldname,qcumpeak,qcummax,b,di):
     # plt.xlim(0,500)
     # plt.yticks(fontsize=15)
     # plt.show()
-    # plot_div = plot(fig, include_plotlyjs=False, output_type='div', config={'displayModeBar': False})
     df1 = pd.DataFrame( columns =['X_up', 'Y_up'])
     df2 = pd.DataFrame( columns =['X_down', 'Y_down'])
-    # df['X'] = (list(x)+list(x_forecast[1:]))
-    # df['Y'] = (list(y)+list(y_forecast[1:]))
     df1['X_up'] = list(x)
     df1['Y_up'] = list(y)
     df2['X_down'] = list(x_forecast)
     df2['Y_down'] = list(y_forecast)
     return df1,df2 # return x, y
-
-
-# qd2 = get_database1()
-# rf_dif, qcummax = func1(0.345,qd2,25.45)
-
-# database3 = get_database3()
-# rf_qpeak, qcum_peak, rf_cluster_pred, b, Di = func2(0.345, rf_dif, database3,25.45,model_gmfileprod, model_scaler)
-# df_ita = get_database2()
-
-# tpeak = func3(rf_dif, df_ita, rf_qpeak)
-
-# q_exp = func4(tpeak, qcum_peak)
-
-# df = plot_prod(tpeak, q_exp, "BANGKO" ,qcum_peak ,qcummax,b, Di)
-# print(df)

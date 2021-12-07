@@ -18,7 +18,6 @@ function load_profile() {
             var data1 = response.data1;
             var data2 = response.data2;
 
-            // console.log(data);
             var profile_production = {
                 x: Object.values(data1["X_up"]),
                 y: Object.values(data1["Y_up"]),
@@ -33,7 +32,6 @@ function load_profile() {
                 line: {color: "dimgrey", width: 2},
                 
             };
-            console.log(profile_production);
 
             var plot_data = [profile_production,profile_production1];
 
